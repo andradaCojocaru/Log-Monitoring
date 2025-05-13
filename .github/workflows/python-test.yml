@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  test:
+  lint-and-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -29,10 +29,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    # Step 4: Run linter
-    - name: Run flake8 linter
+    # Step 4: Run black to format code
+    - name: Run black formatter
       run: |
-        flake8 .
+        black .
 
     # Step 5: Run tests
     - name: Run tests
